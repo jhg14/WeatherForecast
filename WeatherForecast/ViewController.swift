@@ -23,7 +23,6 @@ class ViewController: UIViewController {
         
         // Show user location at start.
         mapView.showsUserLocation = true
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,14 +33,25 @@ class ViewController: UIViewController {
     //maybe insert relevant map overlay
     // store of save locations
     
-    func setMapLocation() {
-        mapView.
+    func setMapLocation(latitude lat: Double, longitude long: Double) {
+        var region = MKCoordinateRegion()
+        region.center.latitude = lat
+        region.center.longitude = long
+        region.span.latitudeDelta = 0.12
+        region.span.longitudeDelta = 0.12
+        
+        mapView.setRegion(region, animated: true)
+    }
+    
+    func getMapLocation() -> MKCoordinateRegion {
+        return mapView.region
     }
 
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        let dest = segue.destinationViewController
+        let dest = segue.destinationViewController as! CoordViewController
+        dest.mapControl = self
         
         dest.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
         

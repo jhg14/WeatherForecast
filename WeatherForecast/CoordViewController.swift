@@ -10,10 +10,14 @@ import UIKit
 
 class CoordViewController: UIViewController  {
     
+    @IBOutlet weak var latitudeField: UITextField!
+    @IBOutlet weak var longitudeField: UITextField!
+    
+    var mapControl: ViewController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -30,6 +34,13 @@ class CoordViewController: UIViewController  {
         
     }
     
-    
-    
+    @IBAction func toCoordsDown(sender: AnyObject) {
+        
+        let lat: Double = ((latitudeField.text)! as NSString).doubleValue
+        let long: Double = ((longitudeField.text)! as NSString).doubleValue
+        
+        mapControl?.setMapLocation(latitude: lat, longitude: long)
+        dismissViewControllerAnimated(true, completion: nil)
+        
+    }
 }
