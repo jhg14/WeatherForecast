@@ -21,10 +21,9 @@ class CoordViewController: UIViewController  {
         // Dispose of any resources that can be recreated.
     }
     
-    
     @IBAction func panSwipeDown(sender: UIPanGestureRecognizer) {
         
-        var translation = sender.translationInView(self.view)
+        let translation = sender.translationInView(self.view)
         if (translation.y > 0){
             dismissViewControllerAnimated(true, completion: nil)
         }

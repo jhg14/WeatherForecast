@@ -26,7 +26,7 @@
                                 <rect key="frame" x="529" y="550" width="57" height="30"/>
                                 <state key="normal" title="Co-ords"/>
                                 <connections>
-                                    <action selector="swipeFromBottomGestureRecognised:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QDe-KT-2UZ"/>
+                                    <action selector="coordButtonDown:" destination="BYZ-38-t0r" eventType="touchUpInside" id="56O-hP-oK7"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -41,10 +41,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="coordButton" destination="QGi-Tb-7Mp" id="Mft-M6-v94"/>
                         <outlet property="mapView" destination="JfU-xs-vMw" id="f99-Vn-Fc0"/>
-                        <segue destination="Z5p-Zk-xpf" kind="popoverPresentation" identifier="toCoordEntry" id="kA6-9b-AVU">
-                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                        </segue>
+                        <segue destination="Z5p-Zk-xpf" kind="presentation" identifier="toCoords" id="wUO-kX-cg2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -54,17 +53,17 @@
         <!--Coord View Controller-->
         <scene sceneID="dwy-8P-NDr">
             <objects>
-                <viewController id="Z5p-Zk-xpf" customClass="CoordViewController" customModule="WeatherForecast" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="coordvc" id="Z5p-Zk-xpf" customClass="CoordViewController" customModule="WeatherForecast" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kZQ-Gy-lHR"/>
                         <viewControllerLayoutGuide type="bottom" id="flt-sW-HyF"/>
                     </layoutGuides>
-                    <view key="view" opaque="NO" alpha="0.40000000000000002" contentMode="scaleToFill" id="Z5E-Xy-Da4">
+                    <view key="view" alpha="0.69999999999999996" contentMode="scaleToFill" id="Z5E-Xy-Da4">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Latitude" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eGR-x5-hoD">
-                                <rect key="frame" x="252" y="113" width="97" height="30"/>
+                                <rect key="frame" x="252" y="253" width="97" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="97" id="9Zj-3p-SsG"/>
                                 </constraints>
@@ -72,7 +71,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Longitude" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CRl-Zk-8tO">
-                                <rect key="frame" x="252" y="177" width="97" height="30"/>
+                                <rect key="frame" x="252" y="317" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -83,7 +82,7 @@
                             <constraint firstItem="eGR-x5-hoD" firstAttribute="leading" secondItem="CRl-Zk-8tO" secondAttribute="leading" id="AZV-hh-ZSk"/>
                             <constraint firstItem="eGR-x5-hoD" firstAttribute="centerX" secondItem="Z5E-Xy-Da4" secondAttribute="centerX" id="Baa-EA-0xJ"/>
                             <constraint firstItem="CRl-Zk-8tO" firstAttribute="top" secondItem="eGR-x5-hoD" secondAttribute="bottom" constant="34" id="LqW-Ta-WI4"/>
-                            <constraint firstItem="eGR-x5-hoD" firstAttribute="top" secondItem="kZQ-Gy-lHR" secondAttribute="bottom" constant="93" id="Moc-pg-LTj"/>
+                            <constraint firstItem="eGR-x5-hoD" firstAttribute="top" secondItem="kZQ-Gy-lHR" secondAttribute="bottom" constant="233" id="Moc-pg-LTj"/>
                             <constraint firstItem="CRl-Zk-8tO" firstAttribute="trailing" secondItem="eGR-x5-hoD" secondAttribute="trailing" id="TlT-xg-MCc"/>
                         </constraints>
                         <connections>
