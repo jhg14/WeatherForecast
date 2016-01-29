@@ -12,8 +12,6 @@ import MapKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
-    var coordViewController: UIViewController?
-    
     @IBOutlet weak var coordButton: UIButton!
     
     
@@ -50,17 +48,29 @@ class ViewController: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        let dest = segue.destinationViewController as! CoordViewController
-        dest.mapControl = self
-        
-        dest.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
-        
-        
+        if segue.identifier == "toCoords" {
+            let dest = segue.destinationViewController as! CoordViewController
+            dest.mapControl = self
+            dest.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
+        }
     }
     
     @IBAction func coordButtonDown(sender: AnyObject) {
         self.performSegueWithIdentifier("toCoords", sender: sender)
     }
+    
+    
+    @IBAction func forecastButtonDown(sender: AnyObject) {
+        performSegueWithIdentifier("toForecast", sender: sender)
+        
+    }
+    
+    
+    
+    
+    
+    
+    
 
 }
 

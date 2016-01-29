@@ -13,6 +13,7 @@
 		7EE2B4311C5A75F000650D5C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7EE2B4301C5A75F000650D5C /* Assets.xcassets */; };
 		7EE2B4341C5A75F000650D5C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EE2B4321C5A75F000650D5C /* LaunchScreen.storyboard */; };
 		7EE2B43C1C5A7F4300650D5C /* CoordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE2B43B1C5A7F4300650D5C /* CoordViewController.swift */; };
+		7EE2B4401C5AF58600650D5C /* WeatherTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE2B43F1C5AF58600650D5C /* WeatherTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		7EE2B4331C5A75F000650D5C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7EE2B4351C5A75F000650D5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7EE2B43B1C5A7F4300650D5C /* CoordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoordViewController.swift; sourceTree = "<group>"; };
+		7EE2B43F1C5AF58600650D5C /* WeatherTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			children = (
 				7EE2B4291C5A75F000650D5C /* AppDelegate.swift */,
 				7EE2B42B1C5A75F000650D5C /* ViewController.swift */,
+				7EE2B43F1C5AF58600650D5C /* WeatherTableViewController.swift */,
 				7EE2B43B1C5A7F4300650D5C /* CoordViewController.swift */,
 				7EE2B42D1C5A75F000650D5C /* Main.storyboard */,
 				7EE2B4301C5A75F000650D5C /* Assets.xcassets */,
@@ -139,6 +142,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7EE2B4401C5AF58600650D5C /* WeatherTableViewController.swift in Sources */,
 				7EE2B43C1C5A7F4300650D5C /* CoordViewController.swift in Sources */,
 				7EE2B42C1C5A75F000650D5C /* ViewController.swift in Sources */,
 				7EE2B42A1C5A75F000650D5C /* AppDelegate.swift in Sources */,
@@ -289,6 +293,7 @@
 				7EE2B43A1C5A75F000650D5C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -8,6 +8,58 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--Weather Table View Contoller-->
+        <scene sceneID="Zvr-nd-UKW">
+            <objects>
+                <viewController id="ZVZ-QG-6NG" customClass="WeatherTableViewContoller" customModule="WeatherForecast" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kAs-Dv-pxY"/>
+                        <viewControllerLayoutGuide type="bottom" id="mUl-Lm-F98"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="JSn-3m-cwk">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Fro-y5-qaS">
+                                <rect key="frame" x="20" y="28" width="560" height="528"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="weathercell" id="5RQ-fG-Rpd">
+                                        <rect key="frame" x="0.0" y="28" width="560" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5RQ-fG-Rpd" id="nCV-qI-P9Y">
+                                            <rect key="frame" x="0.0" y="0.0" width="560" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="Fro-y5-qaS" firstAttribute="leading" secondItem="JSn-3m-cwk" secondAttribute="leadingMargin" id="MCk-ad-7Fi"/>
+                            <constraint firstAttribute="bottom" secondItem="Fro-y5-qaS" secondAttribute="bottom" constant="44" id="WyU-Y8-rnn"/>
+                            <constraint firstItem="Fro-y5-qaS" firstAttribute="top" secondItem="kAs-Dv-pxY" secondAttribute="bottom" constant="8" symbolic="YES" id="mf8-3Z-6I5"/>
+                            <constraint firstItem="Fro-y5-qaS" firstAttribute="trailing" secondItem="JSn-3m-cwk" secondAttribute="trailingMargin" id="rup-EK-gw3"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="6tf-FZ-U1k" appends="YES" id="sFL-vu-jSG"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="Fro-y5-qaS" id="cW3-bp-Kpn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bq7-5O-s0j" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="6tf-FZ-U1k">
+                    <connections>
+                        <action selector="swipeToGoBack:" destination="ZVZ-QG-6NG" id="SUj-To-YL4"/>
+                    </connections>
+                </swipeGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="244" y="-517"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -46,6 +98,9 @@
                                 <state key="normal" title="Forecast">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="forecastButtonDown:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GrE-IP-6iH"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rkN-HK-04j">
                                 <rect key="frame" x="20" y="562" width="91" height="30"/>
@@ -81,6 +136,7 @@
                         <outlet property="coordButton" destination="QGi-Tb-7Mp" id="Mft-M6-v94"/>
                         <outlet property="mapView" destination="JfU-xs-vMw" id="f99-Vn-Fc0"/>
                         <segue destination="Z5p-Zk-xpf" kind="presentation" identifier="toCoords" id="wUO-kX-cg2"/>
+                        <segue destination="ZVZ-QG-6NG" kind="presentation" identifier="toForecast" id="paP-m0-VC9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
