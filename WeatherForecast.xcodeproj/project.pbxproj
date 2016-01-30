@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7E33F37C1C5CFFA1000EB8C1 /* JSONHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E33F37B1C5CFFA1000EB8C1 /* JSONHandler.swift */; };
+		7EB9D66C1C5B990C000B6050 /* ALEX.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EB9D66B1C5B990C000B6050 /* ALEX.png */; };
 		7EE2B42A1C5A75F000650D5C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE2B4291C5A75F000650D5C /* AppDelegate.swift */; };
 		7EE2B42C1C5A75F000650D5C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE2B42B1C5A75F000650D5C /* ViewController.swift */; };
 		7EE2B42F1C5A75F000650D5C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EE2B42D1C5A75F000650D5C /* Main.storyboard */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7E33F37B1C5CFFA1000EB8C1 /* JSONHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONHandler.swift; sourceTree = "<group>"; };
+		7EB9D66B1C5B990C000B6050 /* ALEX.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ALEX.png; sourceTree = "<group>"; };
 		7EE2B4261C5A75F000650D5C /* WeatherForecast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherForecast.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EE2B4291C5A75F000650D5C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7EE2B42B1C5A75F000650D5C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -63,9 +67,11 @@
 				7EE2B43F1C5AF58600650D5C /* WeatherTableViewController.swift */,
 				7EE2B43B1C5A7F4300650D5C /* CoordViewController.swift */,
 				7EE2B42D1C5A75F000650D5C /* Main.storyboard */,
+				7E33F37B1C5CFFA1000EB8C1 /* JSONHandler.swift */,
 				7EE2B4301C5A75F000650D5C /* Assets.xcassets */,
 				7EE2B4321C5A75F000650D5C /* LaunchScreen.storyboard */,
 				7EE2B4351C5A75F000650D5C /* Info.plist */,
+				7EB9D66B1C5B990C000B6050 /* ALEX.png */,
 			);
 			path = WeatherForecast;
 			sourceTree = "<group>";
@@ -130,6 +136,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7EE2B4341C5A75F000650D5C /* LaunchScreen.storyboard in Resources */,
+				7EB9D66C1C5B990C000B6050 /* ALEX.png in Resources */,
 				7EE2B4311C5A75F000650D5C /* Assets.xcassets in Resources */,
 				7EE2B42F1C5A75F000650D5C /* Main.storyboard in Resources */,
 			);
@@ -143,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7EE2B4401C5AF58600650D5C /* WeatherTableViewController.swift in Sources */,
+				7E33F37C1C5CFFA1000EB8C1 /* JSONHandler.swift in Sources */,
 				7EE2B43C1C5A7F4300650D5C /* CoordViewController.swift in Sources */,
 				7EE2B42C1C5A75F000650D5C /* ViewController.swift in Sources */,
 				7EE2B42A1C5A75F000650D5C /* AppDelegate.swift in Sources */,

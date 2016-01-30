@@ -15,9 +15,20 @@ class CoordViewController: UIViewController  {
     
     var mapControl: ViewController?
     
+    var handler :JSONHandler?
+    
+    
+    @IBOutlet weak var longPlusMinus: UISegmentedControl!
+    @IBOutlet weak var latPlusMinus: UISegmentedControl!
+    
     override func viewDidLoad() {
+
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        handler = JSONHandler()
+        handler?.setUpRequest()
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -36,11 +47,21 @@ class CoordViewController: UIViewController  {
     
     @IBAction func toCoordsDown(sender: AnyObject) {
         
-        let lat: Double = ((latitudeField.text)! as NSString).doubleValue
-        let long: Double = ((longitudeField.text)! as NSString).doubleValue
+        var lat: Double = ((latitudeField.text)! as NSString).doubleValue
+        var long: Double = ((longitudeField.text)! as NSString).doubleValue
+        
+        if latPlusMinus.titleForSegmentAtIndex(latPlusMinus.selectedSegmentIndex) == "-" {
+            lat = -lat
+        }
+        
+        if longPlusMinus.titleForSegmentAtIndex(longPlusMinus.selectedSegmentIndex) == "-" {
+            long = -long
+        }
         
         mapControl?.setMapLocation(latitude: lat, longitude: long)
         dismissViewControllerAnimated(true, completion: nil)
         
     }
+    
+    
 }

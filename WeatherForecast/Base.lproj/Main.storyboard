@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -157,33 +157,54 @@
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Latitude" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eGR-x5-hoD">
                                 <rect key="frame" x="252" y="253" width="97" height="30"/>
+                                <color key="tintColor" red="0.61960784310000006" green="0.85490196080000003" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="97" id="9Zj-3p-SsG"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Longitude" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CRl-Zk-8tO">
-                                <rect key="frame" x="252" y="317" width="97" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OWq-tK-rQK">
-                                <rect key="frame" x="285" y="406" width="30" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OWq-tK-rQK">
+                                <rect key="frame" x="268" y="393" width="64" height="43"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="Go!"/>
                                 <connections>
                                     <action selector="toCoordsDown:" destination="Z5p-Zk-xpf" eventType="touchUpInside" id="GRJ-Xe-hmW"/>
                                 </connections>
                             </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="i1N-Lg-2k3">
+                                <rect key="frame" x="142" y="254" width="89" height="29"/>
+                                <segments>
+                                    <segment title="+"/>
+                                    <segment title="-"/>
+                                </segments>
+                            </segmentedControl>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="bzA-Aa-fML">
+                                <rect key="frame" x="142" y="318" width="89" height="29"/>
+                                <segments>
+                                    <segment title="+"/>
+                                    <segment title="-"/>
+                                </segments>
+                            </segmentedControl>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Longitude" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CRl-Zk-8tO">
+                                <rect key="frame" x="252" y="317" width="97" height="30"/>
+                                <color key="tintColor" red="0.61960784310000006" green="0.85490196080000003" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="OWq-tK-rQK" firstAttribute="top" secondItem="CRl-Zk-8tO" secondAttribute="bottom" constant="59" id="6rI-ma-dGE"/>
+                            <constraint firstItem="bzA-Aa-fML" firstAttribute="centerY" secondItem="CRl-Zk-8tO" secondAttribute="centerY" id="3N3-6q-87F"/>
+                            <constraint firstItem="OWq-tK-rQK" firstAttribute="top" secondItem="CRl-Zk-8tO" secondAttribute="bottom" constant="46" id="6rI-ma-dGE"/>
                             <constraint firstItem="eGR-x5-hoD" firstAttribute="leading" secondItem="CRl-Zk-8tO" secondAttribute="leading" id="AZV-hh-ZSk"/>
                             <constraint firstItem="eGR-x5-hoD" firstAttribute="centerX" secondItem="Z5E-Xy-Da4" secondAttribute="centerX" id="Baa-EA-0xJ"/>
+                            <constraint firstItem="bzA-Aa-fML" firstAttribute="leading" secondItem="i1N-Lg-2k3" secondAttribute="leading" id="DMw-3V-kWJ"/>
+                            <constraint firstItem="eGR-x5-hoD" firstAttribute="leading" secondItem="i1N-Lg-2k3" secondAttribute="trailing" constant="21" id="IHy-dK-Twa"/>
                             <constraint firstItem="CRl-Zk-8tO" firstAttribute="top" secondItem="eGR-x5-hoD" secondAttribute="bottom" constant="34" id="LqW-Ta-WI4"/>
                             <constraint firstItem="eGR-x5-hoD" firstAttribute="top" secondItem="kZQ-Gy-lHR" secondAttribute="bottom" constant="233" id="Moc-pg-LTj"/>
+                            <constraint firstItem="i1N-Lg-2k3" firstAttribute="centerY" secondItem="eGR-x5-hoD" secondAttribute="centerY" id="PSp-pl-kX9"/>
                             <constraint firstItem="CRl-Zk-8tO" firstAttribute="trailing" secondItem="eGR-x5-hoD" secondAttribute="trailing" id="TlT-xg-MCc"/>
                             <constraint firstItem="OWq-tK-rQK" firstAttribute="centerX" secondItem="CRl-Zk-8tO" secondAttribute="centerX" id="bBV-Fb-hRK"/>
                         </constraints>
@@ -192,7 +213,9 @@
                         </connections>
                     </view>
                     <connections>
+                        <outlet property="latPlusMinus" destination="i1N-Lg-2k3" id="SeH-tv-eHH"/>
                         <outlet property="latitudeField" destination="eGR-x5-hoD" id="rXb-JD-B0C"/>
+                        <outlet property="longPlusMinus" destination="bzA-Aa-fML" id="k8X-hM-619"/>
                         <outlet property="longitudeField" destination="CRl-Zk-8tO" id="PyL-1Y-J0C"/>
                     </connections>
                 </viewController>
