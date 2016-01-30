@@ -44,21 +44,40 @@
                             <constraint firstItem="Fro-y5-qaS" firstAttribute="trailing" secondItem="JSn-3m-cwk" secondAttribute="trailingMargin" id="rup-EK-gw3"/>
                         </constraints>
                         <connections>
-                            <outletCollection property="gestureRecognizers" destination="6tf-FZ-U1k" appends="YES" id="sFL-vu-jSG"/>
+                            <outletCollection property="gestureRecognizers" destination="v1q-jx-JM0" appends="YES" id="wuZ-We-fbs"/>
                         </connections>
                     </view>
                     <connections>
                         <outlet property="tableView" destination="Fro-y5-qaS" id="cW3-bp-Kpn"/>
+                        <segue destination="KKv-1Y-SB7" kind="presentation" identifier="toDescription" id="fmz-ff-ULp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bq7-5O-s0j" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="right" id="6tf-FZ-U1k">
+                <swipeGestureRecognizer direction="right" id="v1q-jx-JM0">
                     <connections>
-                        <action selector="swipeToGoBack:" destination="ZVZ-QG-6NG" id="SUj-To-YL4"/>
+                        <action selector="swipeToGoBack:" destination="ZVZ-QG-6NG" id="RDT-d0-vE2"/>
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="244" y="-517"/>
+        </scene>
+        <!--Table Description View Controller-->
+        <scene sceneID="bym-e4-Bgw">
+            <objects>
+                <viewController id="KKv-1Y-SB7" customClass="TableDescriptionViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6XC-dq-g61"/>
+                        <viewControllerLayoutGuide type="bottom" id="XI6-eU-xPR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2LU-zu-lhp">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="70k-oX-69J" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1057" y="-524"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">

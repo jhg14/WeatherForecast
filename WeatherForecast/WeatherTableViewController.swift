@@ -8,9 +8,16 @@
 
 import UIKit
 
-class WeatherTableViewContoller: UIViewController, UITableViewDataSource {
+struct CellData {
+    let date: NSDate
+    let weatherDesc: String
+    let tempOnlyDay: Float
+}
+
+
+class WeatherTableViewContoller: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    var tableData: [String] = ["Paris", "London", "Tokyo", "Los Angeles", "New York"]
+    var data: FullData?
     
     @IBOutlet var tableView: UITableView!
     
@@ -18,19 +25,34 @@ class WeatherTableViewContoller: UIViewController, UITableViewDataSource {
         super.viewDidLoad()
         
         tableView.dataSource = self
+        tableView.delegate = self
+        
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
+        let cellData = getCellData(indexPath.row)
+        
         let cell = self.tableView.dequeueReusableCellWithIdentifier("weathercell", forIndexPath: indexPath) as UITableViewCell
         
-        cell.textLabel?.text = tableData[indexPath.row]
+        cell.textLabel?.text = cellData.date.description
+        cell.detailTextLabel?.text = "\(cellData.weatherDesc) *** \(cellData.tempOnlyDay)"
         return cell
         
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tableData.count
+        if let i = data?.weatherForDays.count {
+            return i
+        } else {
+            return 0
+        }
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        print("Row selected: \(indexPath.row)")
+        
     }
     
     
@@ -47,10 +69,26 @@ class WeatherTableViewContoller: UIViewController, UITableViewDataSource {
                 dismissViewControllerAnimated(true, completion: nil)
         
         }
-        
-        
     }
     
+    
+    private func convertDateFromUnix(dateInUnix: Int) -> NSDate {
+        return NSDate(timeIntervalSince1970: NSTimeInterval(dateInUnix))
+    }
+
+    
+    private func getCellData(dayOfTen: Int) -> CellData {
+    
+        //shouldnt be any cells if no data therefore can assert not nil with !
+        let date = convertDateFromUnix((data?.weatherForDays[dayOfTen].unixTime)!)
+        let weatherDesc = data?.weatherForDays[dayOfTen].weather.description
+        let tempOnlyDay = data?.weatherForDays[dayOfTen].temp[TempName.Day]
+        
+        let cellData = CellData(date: date, weatherDesc: weatherDesc!, tempOnlyDay: tempOnlyDay!)
+        
+        return cellData
+    
+    }
     
     
     

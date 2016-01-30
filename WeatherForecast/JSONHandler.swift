@@ -60,21 +60,14 @@ struct LocationInfo {
 class JSONHandler {
 
     let api_key = "92b07eb9d13717ffb9ddbed3d738ec73"
-    
-    
     var jsonData: NSData?
-    
     
     func setUpRequest(coords: MKCoordinateRegion, count: Int){
         
         // remember the http:// 
         let requestLink = NSURL(string: "http://api.openweathermap.org/data/2.5/forecast/daily?lat=\(coords.center.latitude)&lon=\(coords.center.longitude)&cnt=\(count)&APPID=\(api_key)")
         
-        print(requestLink)
-        
         jsonData = NSData(contentsOfURL: requestLink!)
-        
-        
     }
     
     
@@ -95,8 +88,6 @@ class JSONHandler {
                     let population: Int = area["population"] as! Int
                     
                     locationInfo = LocationInfo(id: id, country: country, name: name, population: population)
-                    
-                    
                 }
                 
                 if let weatherEntries = json["list"] as? NSArray {
@@ -115,9 +106,7 @@ class JSONHandler {
                             temp[TempName.Min] = temps["min"] as? Float
                             temp[TempName.Morn] = temps["morn"] as? Float
                             temp[TempName.Night] = temps["night"] as? Float
-                        
                         }
-                        
                         var weather: Weather!
                         // will be initialised in the following
                         
@@ -133,13 +122,8 @@ class JSONHandler {
                                 let description = wethDat["description"] as! String
                                 
                                 weather = Weather(id: id, mainDescription: mainDescription, description: description)
-                                
-                            
                             }
-                            
-                        
                         }
-                        
                         let unixTime: Int = dayDatum["dt"] as! Int
                         let pressure: Float = dayDatum["pressure"] as! Float
                         let humidity : Float = dayDatum["humidity"] as! Float
@@ -147,25 +131,16 @@ class JSONHandler {
                         let deg: Int = dayDatum["deg"] as! Int
                         let clouds: Int = dayDatum["clouds"] as! Int
                         let rain: Float? = dayDatum["Rain"] as? Float
-                        
+        
                         let dayData = WeatherData(unixTime: unixTime, temp: temp, pressure: pressure, humidity: humidity, weather: weather, speed: speed, deg: deg, clouds: clouds, rain: rain)
                         
                         weatherForDays.append(dayData)
-                        
                     }
-                
                 }
-                
             }
-            
         } catch {
             print("There was an error with NSJSONSerialization.")
         }
-        
         return FullData(locationInfo: locationInfo, weatherForDays: weatherForDays)
-            
-            
     }
-    
-
 }

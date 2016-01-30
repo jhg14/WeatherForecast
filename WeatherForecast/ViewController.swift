@@ -13,6 +13,9 @@ class ViewController: UIViewController {
 
     let NUMBER_OF_DAYS = 10
     
+    //WEATHER DATA
+    var data: FullData?
+    
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var coordButton: UIButton!
     
@@ -67,6 +70,9 @@ class ViewController: UIViewController {
             let dest = segue.destinationViewController as! CoordViewController
             dest.mapControl = self
             dest.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
+        } else if segue.identifier == "toForecast" {
+            let dest = segue.destinationViewController as! WeatherTableViewContoller
+            dest.data = self.data
         }
     }
     
@@ -78,9 +84,13 @@ class ViewController: UIViewController {
     
     @IBAction func forecastButtonDown(sender: AnyObject) {
         
+        var dataToSend: FullData
+        
         //get forecast
         handler?.setUpRequest(getMapLocation(), count: NUMBER_OF_DAYS)
-        handler?.parseJSON()
+        dataToSend = (handler?.parseJSON())!
+        
+        data = dataToSend
         
         
         
