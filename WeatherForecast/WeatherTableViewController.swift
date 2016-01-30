@@ -29,6 +29,10 @@ class WeatherTableViewContoller: UIViewController, UITableViewDataSource, UITabl
         
     }
     
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return data?.locationInfo.name
+    }
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cellData = getCellData(indexPath.row)
@@ -36,7 +40,7 @@ class WeatherTableViewContoller: UIViewController, UITableViewDataSource, UITabl
         let cell = self.tableView.dequeueReusableCellWithIdentifier("weathercell", forIndexPath: indexPath) as UITableViewCell
         
         cell.textLabel?.text = cellData.date.description
-        cell.detailTextLabel?.text = "\(cellData.weatherDesc) *** \(cellData.tempOnlyDay)"
+        cell.detailTextLabel?.text = "Weather: \(cellData.weatherDesc) *** Day Temp: \(cellData.tempOnlyDay)"
         return cell
         
     }
