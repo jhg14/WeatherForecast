@@ -11,8 +11,12 @@ import MapKit
 
 class ViewController: UIViewController {
 
+    let NUMBER_OF_DAYS = 10
+    
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var coordButton: UIButton!
+    
+    var handler: JSONHandler?
     
     
     override func viewDidLoad() {
@@ -21,6 +25,15 @@ class ViewController: UIViewController {
         
         // Show user location at start.
         mapView.showsUserLocation = true
+        
+        
+        //set up JSONHandler
+        handler = JSONHandler()
+        
+        let london = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 51.5072, longitude: 0.1275), span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2))
+        
+        handler?.setUpRequest(london, count: 10)
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,6 +52,8 @@ class ViewController: UIViewController {
         region.span.longitudeDelta = 0.12
         
         mapView.setRegion(region, animated: true)
+        
+        
     }
     
     func getMapLocation() -> MKCoordinateRegion {
@@ -56,11 +71,19 @@ class ViewController: UIViewController {
     }
     
     @IBAction func coordButtonDown(sender: AnyObject) {
+        
         self.performSegueWithIdentifier("toCoords", sender: sender)
     }
     
     
     @IBAction func forecastButtonDown(sender: AnyObject) {
+        
+        //get forecast
+        handler?.setUpRequest(getMapLocation(), count: NUMBER_OF_DAYS)
+        handler?.parseJSON()
+        
+        
+        
         performSegueWithIdentifier("toForecast", sender: sender)
         
     }
