@@ -19,6 +19,8 @@ class WeatherTableViewContoller: UIViewController, UITableViewDataSource, UITabl
     
     var data: FullData?
     
+    var lastDataClicked: (LocationInfo, WeatherData)?
+    
     @IBOutlet var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -55,7 +57,20 @@ class WeatherTableViewContoller: UIViewController, UITableViewDataSource, UITabl
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        print("Row selected: \(indexPath.row)")
+        let dataToPass: (LocationInfo, WeatherData) = ((data?.locationInfo)!, (data?.weatherForDays[indexPath.row])!)
+        
+        lastDataClicked = dataToPass
+        
+        performSegueWithIdentifier("toDescription", sender: tableView.cellForRowAtIndexPath(indexPath))
+        
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if segue.identifier == "toDescription" {
+            let dest = segue.destinationViewController as! TableDescriptionViewController
+            dest.info = lastDataClicked
+        }
         
     }
     
@@ -85,7 +100,7 @@ class WeatherTableViewContoller: UIViewController, UITableViewDataSource, UITabl
     
         //shouldnt be any cells if no data therefore can assert not nil with !
         let date = convertDateFromUnix((data?.weatherForDays[dayOfTen].unixTime)!)
-        let weatherDesc = data?.weatherForDays[dayOfTen].weather.description
+        let weatherDesc = data?.weatherForDays[dayOfTen].weather.mainDescription
         let tempOnlyDay = data?.weatherForDays[dayOfTen].temp[TempName.Day]
         
         let cellData = CellData(date: date, weatherDesc: weatherDesc!, tempOnlyDay: tempOnlyDay!)

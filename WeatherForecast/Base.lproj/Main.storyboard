@@ -80,7 +80,7 @@
         <!--Table Description View Controller-->
         <scene sceneID="bym-e4-Bgw">
             <objects>
-                <viewController id="KKv-1Y-SB7" customClass="TableDescriptionViewController" sceneMemberID="viewController">
+                <viewController id="KKv-1Y-SB7" customClass="TableDescriptionViewController" customModule="WeatherForecast" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6XC-dq-g61"/>
                         <viewControllerLayoutGuide type="bottom" id="XI6-eU-xPR"/>
@@ -88,8 +88,27 @@
                     <view key="view" contentMode="scaleToFill" id="2LU-zu-lhp">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="eAC-aU-t1M">
+                                <rect key="frame" x="180" y="236" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="cQz-b2-53N"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="eAC-aU-t1M" firstAttribute="centerX" secondItem="2LU-zu-lhp" secondAttribute="centerX" id="UZm-eS-fTh"/>
+                            <constraint firstItem="eAC-aU-t1M" firstAttribute="top" secondItem="6XC-dq-g61" secondAttribute="bottom" constant="216" id="b9h-rP-ugb"/>
+                            <constraint firstItem="eAC-aU-t1M" firstAttribute="centerY" secondItem="2LU-zu-lhp" secondAttribute="centerY" id="sHt-EY-FfA"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="textArea" destination="eAC-aU-t1M" id="G8v-5f-vsN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="70k-oX-69J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
