@@ -80,6 +80,7 @@
         <!--Table Description View Controller-->
         <scene sceneID="bym-e4-Bgw">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="70k-oX-69J" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="KKv-1Y-SB7" customClass="TableDescriptionViewController" customModule="WeatherForecast" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6XC-dq-g61"/>
@@ -89,28 +90,50 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="eAC-aU-t1M">
-                                <rect key="frame" x="180" y="236" width="240" height="128"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bvO-wj-og0">
+                                <rect key="frame" x="475" y="519" width="67" height="30"/>
+                                <state key="normal" title="Facebook"/>
+                                <connections>
+                                    <action selector="facebookButtonPushed:" destination="KKv-1Y-SB7" eventType="touchUpInside" id="nGz-Nj-wm8"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g67-NN-QIw">
+                                <rect key="frame" x="111" y="519" width="48" height="30"/>
+                                <state key="normal" title="Twitter"/>
+                                <connections>
+                                    <action selector="twitterButtonPushed:" destination="KKv-1Y-SB7" eventType="touchUpInside" id="j5v-vQ-NmY"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9bX-N7-JtI">
+                                <rect key="frame" x="178" y="20" width="244" height="55"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eAC-aU-t1M">
+                                <rect key="frame" x="20" y="178" width="560" height="333"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="cQz-b2-53N"/>
+                                    <constraint firstAttribute="width" constant="560" id="cQz-b2-53N"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="0.9764663730425055" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="bvO-wj-og0" secondAttribute="trailing" constant="38" id="Mwf-Ps-jiK"/>
                             <constraint firstItem="eAC-aU-t1M" firstAttribute="centerX" secondItem="2LU-zu-lhp" secondAttribute="centerX" id="UZm-eS-fTh"/>
-                            <constraint firstItem="eAC-aU-t1M" firstAttribute="top" secondItem="6XC-dq-g61" secondAttribute="bottom" constant="216" id="b9h-rP-ugb"/>
-                            <constraint firstItem="eAC-aU-t1M" firstAttribute="centerY" secondItem="2LU-zu-lhp" secondAttribute="centerY" id="sHt-EY-FfA"/>
+                            <constraint firstItem="eAC-aU-t1M" firstAttribute="top" secondItem="6XC-dq-g61" secondAttribute="bottom" constant="158" id="b9h-rP-ugb"/>
+                            <constraint firstItem="XI6-eU-xPR" firstAttribute="top" secondItem="bvO-wj-og0" secondAttribute="bottom" constant="51" id="bnm-2L-Yps"/>
+                            <constraint firstItem="XI6-eU-xPR" firstAttribute="top" secondItem="g67-NN-QIw" secondAttribute="bottom" constant="51" id="r5m-qR-I6S"/>
+                            <constraint firstItem="eAC-aU-t1M" firstAttribute="centerY" secondItem="2LU-zu-lhp" secondAttribute="centerY" constant="44.5" id="sHt-EY-FfA"/>
+                            <constraint firstItem="g67-NN-QIw" firstAttribute="leading" secondItem="2LU-zu-lhp" secondAttribute="leadingMargin" constant="91" id="xnl-U4-9bE"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="textArea" destination="eAC-aU-t1M" id="G8v-5f-vsN"/>
+                        <outlet property="titleText" destination="9bX-N7-JtI" id="xTC-Ct-bJR"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="70k-oX-69J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1057" y="-524"/>
         </scene>
