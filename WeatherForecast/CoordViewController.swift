@@ -47,11 +47,11 @@ class CoordViewController: UIViewController  {
         var lat: Double = ((latitudeField.text)! as NSString).doubleValue
         var long: Double = ((longitudeField.text)! as NSString).doubleValue
         
-        if latPlusMinus.titleForSegmentAtIndex(latPlusMinus.selectedSegmentIndex) == "-" {
+        if latPlusMinus.titleForSegmentAtIndex(latPlusMinus.selectedSegmentIndex) == "S" {
             lat = -lat
         }
         
-        if longPlusMinus.titleForSegmentAtIndex(longPlusMinus.selectedSegmentIndex) == "-" {
+        if longPlusMinus.titleForSegmentAtIndex(longPlusMinus.selectedSegmentIndex) == "W" {
             long = -long
         }
         
