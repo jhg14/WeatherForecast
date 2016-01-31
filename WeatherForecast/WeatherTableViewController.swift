@@ -75,19 +75,8 @@ class WeatherTableViewContoller: UIViewController, UITableViewDataSource, UITabl
     }
     
     
-    @IBAction func swipeToGoBack(sender: AnyObject) {
-        //if swipe direction right && in bottom portion, go back
-        
-        let acceptableY = self.view.frame.height - 44
-        
-        let gesture = sender as! UISwipeGestureRecognizer
-        
-        if (gesture.direction == UISwipeGestureRecognizerDirection.Right) &&
-            (gesture.locationInView(self.view).y > acceptableY){
-        
-                dismissViewControllerAnimated(true, completion: nil)
-        
-        }
+    @IBAction func dismissButtonPressed(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     
