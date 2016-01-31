@@ -19,6 +19,8 @@ class WeatherTableViewContoller: UIViewController, UITableViewDataSource, UITabl
     
     var data: FullData?
     
+    @IBOutlet weak var titleAsButton: UIButton!
+    
     var lastDataClicked: (LocationInfo, WeatherData)?
     
     @IBOutlet var tableView: UITableView!
@@ -29,11 +31,22 @@ class WeatherTableViewContoller: UIViewController, UITableViewDataSource, UITabl
         tableView.dataSource = self
         tableView.delegate = self
         
+        titleAsButton.setTitle(data?.locationInfo.name, forState: .Normal)
+        
+        
+        
     }
     
-    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return data?.locationInfo.name
+    private func fromKelvin(x: Float) -> Float {
+        let i = Float(round(100*(x-273.15))/100)
+        return i
+        
     }
+    
+    
+//    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        return data?.locationInfo.name
+//    }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
@@ -41,8 +54,10 @@ class WeatherTableViewContoller: UIViewController, UITableViewDataSource, UITabl
         
         let cell = self.tableView.dequeueReusableCellWithIdentifier("weathercell", forIndexPath: indexPath) as UITableViewCell
         
-        cell.textLabel?.text = cellData.date.description
-        cell.detailTextLabel?.text = "Weather: \(cellData.weatherDesc) *** Day Temp: \(cellData.tempOnlyDay)"
+        var str = cellData.date.description as NSString
+        str = str.substringToIndex(10)
+        cell.textLabel?.text = str as String
+        cell.detailTextLabel?.text = "Weather: \(cellData.weatherDesc), Day Temp: \(fromKelvin(cellData.tempOnlyDay))"
         return cell
         
     }

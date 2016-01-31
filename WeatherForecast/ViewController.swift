@@ -81,6 +81,11 @@ class ViewController: UIViewController {
         self.performSegueWithIdentifier("toCoords", sender: sender)
     }
     
+    @IBAction func meButtonDown(sender: AnyObject) {
+        var userLoc = mapView.userLocation.location?.coordinate
+        setMapLocation(latitude: (userLoc?.latitude)!, longitude: (userLoc?.longitude)!)
+        
+    }
     
     @IBAction func forecastButtonDown(sender: AnyObject) {
         
